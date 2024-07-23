@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://djgnevyxkdjw7"]
+
+[ext_resource type="Texture2D" uid="uid://rlwt2nb0i8h1" path="res://assets/12-Live and Coins/Small Diamond (18x14).png" id="1_u0khx"]
+[ext_resource type="FontFile" uid="uid://baq5qhqofqb74" path="res://assets/fonts/PixelOperator8.ttf" id="2_a5qr2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e1y5"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2bfw"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_impcf"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twd31"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqop7"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hekgh"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckqda"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3osl"]
+atlas = ExtResource("1_u0khx")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5weh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e1y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2bfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_impcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twd31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqop7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hekgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckqda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3osl")
+}],
+"loop": true,
+"name": &"dimondIdleGui",
+"speed": 10.0
+}]
+
+[node name="dimondGui" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 18.0
+offset_bottom = 9.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_5weh2")
+animation = &"dimondIdleGui"
+autoplay = "dimondIdleGui"
+frame_progress = 0.67865
+centered = false
+
+[node name="counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 1.0
+offset_right = 25.0
+offset_bottom = 9.0
+scale = Vector2(1.30226, 0.886755)
+theme_override_fonts/font = ExtResource("2_a5qr2")
+theme_override_font_sizes/font_size = 8
+text = "Q"
+horizontal_alignment = 1

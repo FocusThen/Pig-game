@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://cveijet2aadva"]
+
+[ext_resource type="Texture2D" uid="uid://bc5a7i7icceh7" path="res://assets/12-Live and Coins/Big Diamond Idle (18x14).png" id="1_ku0wn"]
+[ext_resource type="Script" path="res://scripts/diamond.gd" id="2_7v716"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy10q"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(4, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jkuq"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(22, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekuk1"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(40, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye4x3"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(58, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsvmk"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(76, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p64e2"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(94, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb0a8"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(112, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne51h"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(130, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhvjk"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(148, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeg5h"]
+atlas = ExtResource("1_ku0wn")
+region = Rect2(166, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wshku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy10q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jkuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekuk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye4x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsvmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p64e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb0a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne51h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhvjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeg5h")
+}],
+"loop": true,
+"name": &"idleDimond",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1v8t"]
+radius = 6.0
+
+[node name="diamond" type="Area2D"]
+collision_mask = 2
+script = ExtResource("2_7v716")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wshku")
+animation = &"idleDimond"
+autoplay = "idleDimond"
+frame_progress = 0.0329321
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e1v8t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

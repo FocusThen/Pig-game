@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp18kkvgav336"]
+
+[ext_resource type="Script" path="res://scripts/healthGui.gd" id="1_ltpp6"]
+[ext_resource type="Texture2D" uid="uid://ctef4byft7ees" path="res://assets/12-Live and Coins/Live Bar.png" id="1_q6mnu"]
+[ext_resource type="PackedScene" uid="uid://djgnevyxkdjw7" path="res://gui/diamond_gui.tscn" id="2_y2xtb"]
+
+[node name="healthGui" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 41.0
+offset_bottom = 28.0
+script = ExtResource("1_ltpp6")
+
+[node name="diamondGui" parent="." instance=ExtResource("2_y2xtb")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 25.0
+offset_right = 19.0
+offset_bottom = 34.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14, -11)
+texture = ExtResource("1_q6mnu")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
