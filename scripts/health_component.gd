@@ -8,7 +8,7 @@ func _ready():
 	currentHealth = MaxHealth
 
 func damage(attack):
-	currentHealth -= attack
+	currentHealth += attack
 
 func getCurrentHealth():
 	return currentHealth

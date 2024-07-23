@@ -1,7 +1,6 @@
 class_name Player extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var enums = $"../Enums"
 @onready var animation_tree = $AnimationTree
 
 const SPEED = 130.0
@@ -11,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var health_component = $HealthComponent
 
-signal healthChanged
 var isAlive := true
 var isAttacking := false
 
@@ -57,14 +55,16 @@ func _physics_process(delta):
 
 func _on_hit_box_component_area_entered(area):
 	if area.has_method("damage"):
-		state_machine.travel("hurt")
-		health_component.currentHealth -=1
-		healthChanged.emit(enums.DmgOrHeal.Dmg)
+		#state_machine.travel("hurt")
+		var hurt = -1
+		health_component.damage(hurt)
+		Events.emit_signal("player_health", hurt)
 		
 	if health_component.currentHealth == 0:
+		isAlive = false
 		state_machine.travel('dead')
 		await animation_tree.animation_finished
-		self.queue_free()
+		
 
 
 func _on_animation_tree_animation_finished(anim_name):
