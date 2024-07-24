@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://4h0mjsba4t1q"]
 
-[ext_resource type="PackedScene" uid="uid://bgrel026p8m57" path="res://scenes/player.tscn" id="1_mf54g"]
-[ext_resource type="Texture2D" uid="uid://bt42kqttttikl" path="res://assets/14-TileSets/Terrain (32x32).png" id="2_mifka"]
-[ext_resource type="Texture2D" uid="uid://d2q6e173d6sdl" path="res://assets/14-TileSets/Decorations (32x32).png" id="2_tny14"]
-[ext_resource type="PackedScene" uid="uid://bp18kkvgav336" path="res://gui/health_gui.tscn" id="5_7laag"]
-[ext_resource type="PackedScene" uid="uid://cveijet2aadva" path="res://scenes/diamond.tscn" id="6_7ylsp"]
-[ext_resource type="PackedScene" uid="uid://cm33kr3pkxwtc" path="res://scenes/enemy.tscn" id="8_yarbn"]
+[ext_resource type="Texture2D" uid="uid://bt42kqttttikl" path="res://assets/14-TileSets/Terrain (32x32).png" id="1_gnh6p"]
+[ext_resource type="Texture2D" uid="uid://d2q6e173d6sdl" path="res://assets/14-TileSets/Decorations (32x32).png" id="2_vqoj4"]
+[ext_resource type="PackedScene" uid="uid://bp18kkvgav336" path="res://gui/health_gui.tscn" id="3_pkhq0"]
+[ext_resource type="PackedScene" uid="uid://bgrel026p8m57" path="res://scenes/player.tscn" id="4_wobfc"]
+[ext_resource type="PackedScene" uid="uid://cm33kr3pkxwtc" path="res://scenes/enemy.tscn" id="5_pfu4y"]
+[ext_resource type="PackedScene" uid="uid://cveijet2aadva" path="res://scenes/diamond.tscn" id="6_h2uvr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj4ta"]
-texture = ExtResource("2_mifka")
+texture = ExtResource("1_gnh6p")
 10:2/0 = 0
 10:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:2/0/physics_layer_0/angular_velocity = 0.0
@@ -927,7 +927,7 @@ texture = ExtResource("2_mifka")
 14:16/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhdxc"]
-texture = ExtResource("2_tny14")
+texture = ExtResource("2_vqoj4")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -991,14 +991,11 @@ layer_0/tile_data = PackedInt32Array(327671, 917504, 4, 327672, 262144, 2, 32767
 layer_1/name = "ui"
 layer_1/tile_data = PackedInt32Array(-65537, 131074, 3, -131071, 131074, 3, -131069, 131074, 3, -65536, 65538, 1, -65534, 65538, 1, 0, 65538, 3, 2, 65538, 3, 6, 262146, 3, 65529, 65538, 1, 131065, 65538, 2, 196601, 65538, 3, -6, 131074, 3, 65530, 65538, 4)
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-
 [node name="InGameHUD" type="CanvasLayer" parent="."]
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 
-[node name="healthGui" parent="InGameHUD" node_paths=PackedStringArray("player") instance=ExtResource("5_7laag")]
+[node name="healthGui" parent="InGameHUD" node_paths=PackedStringArray("player") instance=ExtResource("3_pkhq0")]
 offset_left = 23.3333
 offset_top = 38.3333
 offset_right = 63.3333
@@ -1006,21 +1003,22 @@ offset_bottom = 78.3333
 player = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("1_mf54g")]
+[node name="Player" parent="." instance=ExtResource("4_wobfc")]
 position = Vector2(59, -55)
 
 [node name="GameCamera" type="Camera2D" parent="."]
 position = Vector2(289, -161)
 zoom = Vector2(2, 2)
 
-[node name="Enemy" parent="." instance=ExtResource("8_yarbn")]
+[node name="Enemy" parent="." instance=ExtResource("5_pfu4y")]
 position = Vector2(519, -53)
+is_moveable = false
 
-[node name="diamond" parent="." instance=ExtResource("6_7ylsp")]
+[node name="diamond" parent="." instance=ExtResource("6_h2uvr")]
 position = Vector2(252, -77)
 
-[node name="diamond2" parent="." instance=ExtResource("6_7ylsp")]
+[node name="diamond2" parent="." instance=ExtResource("6_h2uvr")]
 position = Vector2(316, -102)
 
-[node name="diamond3" parent="." instance=ExtResource("6_7ylsp")]
+[node name="diamond3" parent="." instance=ExtResource("6_h2uvr")]
 position = Vector2(385, -76)

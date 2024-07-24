@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Pig Game"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/levels/level1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Events="*res://scripts/core/Events.gd"
+Music="*res://scenes/music.tscn"
 
 [input]
 

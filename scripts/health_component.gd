@@ -10,5 +10,3 @@ func _ready():
 func damage(attack):
 	currentHealth += attack
 
-func getCurrentHealth():
-	return currentHealth
