@@ -545,6 +545,7 @@ node_connections = [&"output", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ai5mo"]
 switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ycl2d"]
 
@@ -587,10 +588,11 @@ states/jump/position = Vector2(326.785, -139.323)
 states/run/node = SubResource("AnimationNodeBlendTree_sfdcs")
 states/run/position = Vector2(563.286, -18.8202)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ht1ix"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_dl3oh"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ai5mo"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ycl2d"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_cl3xl"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_d05gb"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_qnod8"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_bpqe1"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_mu8rl"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_ybi7t"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_mw2ox"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_lex1a"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_mg0ne"), "idle", "dead", SubResource("AnimationNodeStateMachineTransition_j8j7h"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_d7ytp")]
-graph_offset = Vector2(-65.7308, -45.1945)
+graph_offset = Vector2(-98.5958, -196.417)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_6y606")
 

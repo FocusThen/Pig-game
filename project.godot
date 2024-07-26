@@ -20,6 +20,15 @@ config/icon="res://icon.svg"
 Events="*res://scripts/core/Events.gd"
 Music="*res://scenes/music.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="res://gui_theme.tres"
+
 [input]
 
 jump={

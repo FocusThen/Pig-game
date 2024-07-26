@@ -349,7 +349,8 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-32.8649, -60.48)
 
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 2
+scale = Vector2(2, 2)
+collision_layer = 4
 script = ExtResource("1_m8mqg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

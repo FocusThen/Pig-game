@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = -60
+var speed = -100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var health_component = $HealthComponent
 @onready var animation_tree = $AnimationTree

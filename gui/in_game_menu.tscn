@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://tm6j7qcxw7yb"]
+
+[ext_resource type="Theme" uid="uid://b2wt215ooot8h" path="res://gui_theme.tres" id="1_t8ppp"]
+[ext_resource type="Texture2D" uid="uid://cf06uruehynmk" path="res://assets/gui/ribbons/Ribbon_Red_3Slides.png" id="2_b7bfv"]
+
+[sub_resource type="Animation" id="Animation_hsxy0"]
+resource_name = "open_menu"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l0720"]
+_data = {
+"open_menu": SubResource("Animation_hsxy0")
+}
+
+[node name="InGameMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 281.0
+offset_bottom = 78.0
+texture = ExtResource("2_b7bfv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 20
+text = "Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="BtnPause" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
+layout_mode = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnPause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.873419)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnSettings" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
+layout_mode = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.873419)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnQuit" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
+layout_mode = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnQuit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.873419)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l0720")
+}
