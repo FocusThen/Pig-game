@@ -381,8 +381,12 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_c0kmd")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="UnderCheck" type="RayCast2D" parent="."]
 position = Vector2(-6, 0)
 target_position = Vector2(2.08165e-12, 15)
+
+[node name="FowardCheck" type="RayCast2D" parent="."]
+rotation = -0.0168526
+target_position = Vector2(-12, 2.08165e-12)
 
 [connection signal="area_entered" from="HitBoxComponent" to="." method="_on_hit_box_component_area_entered"]

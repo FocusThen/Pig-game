@@ -4,6 +4,8 @@ var speed = -100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var health_component = $HealthComponent
 @onready var animation_tree = $AnimationTree
+@onready var under_check = $UnderCheck
+@onready var foward_check = $FowardCheck
 
 var isAlive := true
 var state_machine
@@ -19,9 +21,11 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	
-	if !$RayCast2D.is_colliding() && is_on_floor() && is_moveable:
+	if !under_check.is_colliding() && is_on_floor() && is_moveable:
 		flip()
-	
+	if foward_check.is_colliding() && is_on_wall():
+		flip()
+		
 	if isAlive:
 		move_and_slide()
 		if is_moveable:

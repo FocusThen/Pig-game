@@ -1,13 +1,75 @@
-[gd_scene load_steps=5 format=3 uid="uid://tm6j7qcxw7yb"]
+[gd_scene load_steps=7 format=3 uid="uid://tm6j7qcxw7yb"]
 
+[ext_resource type="Script" path="res://scripts/in_game_menu.gd" id="1_70xd6"]
 [ext_resource type="Theme" uid="uid://b2wt215ooot8h" path="res://gui_theme.tres" id="1_t8ppp"]
 [ext_resource type="Texture2D" uid="uid://cf06uruehynmk" path="res://assets/gui/ribbons/Ribbon_Red_3Slides.png" id="2_b7bfv"]
 
 [sub_resource type="Animation" id="Animation_hsxy0"]
 resource_name = "open_menu"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/TextureRect:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(192, -0.25, 0, 0.25, 0, 313, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/TextureRect:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(64, -0.25, 0, 0.25, 0, 82, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/TextureRect:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(29, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/TextureRect:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.2)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_brgc0"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l0720"]
 _data = {
+"RESET": SubResource("Animation_brgc0"),
 "open_menu": SubResource("Animation_hsxy0")
 }
 
@@ -19,8 +81,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_70xd6")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -28,10 +92,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -125.0
+offset_top = -150.0
+offset_right = 125.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_t8ppp")
@@ -67,6 +131,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
@@ -76,14 +142,14 @@ theme_override_constants/margin_bottom = 70
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 10
 
-[node name="BtnPause" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="BtnResume" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
 theme = ExtResource("1_t8ppp")
 
-[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnPause"]
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnResume"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,7 +161,28 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 16
-text = "Pause"
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnReset" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
+layout_mode = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnReset"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.873419)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Reset"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -145,3 +232,8 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_l0720")
 }
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnReset" to="." method="_on_btn_reset_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnSettings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnQuit" to="." method="_on_btn_quit_pressed"]
