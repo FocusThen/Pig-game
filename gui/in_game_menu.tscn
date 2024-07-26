@@ -61,7 +61,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_brgc0"]
@@ -84,7 +84,6 @@ grow_vertical = 2
 script = ExtResource("1_70xd6")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -102,10 +101,10 @@ theme = ExtResource("1_t8ppp")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_left = -32.0
-offset_top = -4.0
-offset_right = 281.0
-offset_bottom = 78.0
+offset_left = 29.0
+offset_top = 5.0
+offset_right = 221.0
+offset_bottom = 69.0
 texture = ExtResource("2_b7bfv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/TextureRect"]
@@ -144,27 +143,6 @@ theme_override_constants/margin_bottom = 70
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="BtnResume" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 35)
-layout_mode = 2
-theme = ExtResource("1_t8ppp")
-
-[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnResume"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 0.873419)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 16
-text = "Resume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="BtnReset" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 35)
 layout_mode = 2
@@ -183,6 +161,27 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 16
 text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnOpenMap" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 35)
+layout_mode = 2
+theme = ExtResource("1_t8ppp")
+
+[node name="ButtonLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/BtnOpenMap"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.873419)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Map"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -233,7 +232,7 @@ libraries = {
 "": SubResource("AnimationLibrary_l0720")
 }
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnResume" to="." method="_on_btn_resume_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnReset" to="." method="_on_btn_reset_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnOpenMap" to="." method="_on_btn_open_map_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnSettings" to="." method="_on_btn_settings_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BtnQuit" to="." method="_on_btn_quit_pressed"]

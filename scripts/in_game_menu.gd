@@ -17,12 +17,12 @@ func esc():
 		resume()
 
 
-func _on_btn_resume_pressed():
-	resume()
 func _on_btn_reset_pressed():
 	resume()
 	get_tree().reload_current_scene()
 
+func _on_btn_open_map_pressed():
+	pass # Replace with function body.
 func _on_btn_settings_pressed():
 	pass # Replace with function body.
 
@@ -34,5 +34,3 @@ func _ready():
 
 func _process(_delta):
 	esc()
-
-
